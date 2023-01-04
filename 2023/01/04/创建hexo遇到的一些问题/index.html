@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>创建hexo遇到的一些问题 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="安装问题在yarn add global hexo-cli后，无法执行hexo命令（command not found）在添加全局变量未果后，发现需要使用npx指令  npx hexo init blog cd blog yarn add npx hexo server会在4000端口生成网站  运行问题但成功在4000端口运行后，发现无法载入，可能是端口已经被占用*解决方法：修改端口npx he">
+<meta property="og:type" content="article">
+<meta property="og:title" content="创建hexo遇到的一些问题">
+<meta property="og:url" content="http://example.com/2023/01/04/%E5%88%9B%E5%BB%BAhexo%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="安装问题在yarn add global hexo-cli后，无法执行hexo命令（command not found）在添加全局变量未果后，发现需要使用npx指令  npx hexo init blog cd blog yarn add npx hexo server会在4000端口生成网站  运行问题但成功在4000端口运行后，发现无法载入，可能是端口已经被占用*解决方法：修改端口npx he">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-01-04T06:31:45.000Z">
+<meta property="article:modified_time" content="2023-01-04T06:48:36.314Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-创建hexo遇到的一些问题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/01/04/%E5%88%9B%E5%BB%BAhexo%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2023-01-04T06:31:45.000Z" itemprop="datePublished">2023-01-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      创建hexo遇到的一些问题
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="安装问题"><a href="#安装问题" class="headerlink" title="安装问题"></a>安装问题</h2><p>在<code>yarn add global hexo-cli</code>后，无法执行hexo命令（command not found）<br>在添加全局变量未果后，发现需要使用npx指令</p>
+<ul>
+<li><code>npx hexo init blog</code></li>
+<li><code>cd blog</code></li>
+<li><code>yarn add</code></li>
+<li><code>npx hexo server</code><br>会在4000端口生成网站</li>
+</ul>
+<h2 id="运行问题"><a href="#运行问题" class="headerlink" title="运行问题"></a>运行问题</h2><p>但成功在4000端口运行后，发现无法载入，可能是端口已经被占用<br>*解决方法：修改端口<br><code>npx hexo s -p 5000</code><br>PS:如果找不到hexo命令，都需要提前加个npx，因为在命令行下调用，可以让项目内部安装的模块用起来更方便，npx运行的时候，会到node_modules&#x2F;.bin路径和环境变量$PATH里面，检查命令是否存在，所以系统命令也可以调用。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/01/04/%E5%88%9B%E5%BB%BAhexo%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" data-id="clchar2rg00007gv235r27mc7" data-title="创建hexo遇到的一些问题" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/01/04/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/01/04/%E5%88%9B%E5%BB%BAhexo%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">创建hexo遇到的一些问题</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/04/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
