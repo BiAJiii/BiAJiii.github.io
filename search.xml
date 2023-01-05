@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>Typora图片共享（Github+Picgo+Typora）</title>
+      <link href="/2023/01/05/Typora%E5%9B%BE%E7%89%87%E5%85%B1%E4%BA%AB%EF%BC%88Github+Picgo+Typora%EF%BC%89/"/>
+      <url>/2023/01/05/Typora%E5%9B%BE%E7%89%87%E5%85%B1%E4%BA%AB%EF%BC%88Github+Picgo+Typora%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Typora图片共享（Github-Picgo-Typora）"><a href="#Typora图片共享（Github-Picgo-Typora）" class="headerlink" title="Typora图片共享（Github+Picgo+Typora）"></a>Typora图片共享（Github+Picgo+Typora）</h1><p>1、安装PicGo</p><p>右下角有安装，然后转跳到主页即可根据流程进行安装。</p><p>安装路径：<code>D:\typora\Typora</code></p><p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301051415761.png" alt="image-20230104173203948"></p><h2 id="2、配置Github"><a href="#2、配置Github" class="headerlink" title="2、配置Github"></a>2、配置Github</h2><h3 id="建立仓库"><a href="#建立仓库" class="headerlink" title="建立仓库"></a>建立仓库</h3><p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301051415933.png" alt="image-20230104173406460"></p><h3 id="获得token"><a href="#获得token" class="headerlink" title="获得token"></a>获得token</h3><p>右上角头上setting &#x3D;&gt; 左下角Developer settings &#x3D;&gt; Personal access tokens (classic) &#x3D;&gt;generate new token &#x3D;&gt;</p><p>得到token</p><h2 id="3、配置Picgo"><a href="#3、配置Picgo" class="headerlink" title="3、配置Picgo"></a>3、配置Picgo</h2><p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301051415261.png" alt="image-20230104172612597"></p><p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301051415656.png" alt="image-20220328081536617"></p><p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301051415008.png" alt="image-20230105133448055"></p><h3 id="4、测试验证即可"><a href="#4、测试验证即可" class="headerlink" title="4、测试验证即可"></a>4、测试验证即可</h3><p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301051415582.png" alt="image-20230104173804757"></p><p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301051415647.png" alt="image-20230105133305869"></p><h2 id="5、图片上传配置"><a href="#5、图片上传配置" class="headerlink" title="5、图片上传配置"></a>5、图片上传配置</h2><p>对typora进行图片配置，如下图所示</p><p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301051417484.png" alt="image-20230105141748428"></p><ul><li><p>首先在本地写typora文件时，要打开Picgo</p></li><li><p>将图片插入方式改为以上形式后，当粘贴图片进入typora时，图片会自动上传Github，且图片路径会从本地路径更改为Github建立的图床中的路径。如：上图为<code>(https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301051417484.png)</code></p></li><li><p>这样，当md文件上传到Github中，图片自动引用Github图床中的图片。</p><p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301051421175.png" alt="image-20230105142120130"></p><p>Github中md文件如下：</p><p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301051421539.png" alt="image-20230105142142496"></p></li><li><p>大功告成~</p></li></ul><h2 id="6、md上传hexo博客"><a href="#6、md上传hexo博客" class="headerlink" title="6、md上传hexo博客"></a>6、md上传hexo博客</h2><p>因为上述图片引用的都是GitHub图床的内容，可以直接访问，所以，在hexo上传md时，只需要将需要的md文件，复制到blog对应的md文件即可。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>创建hexo遇到的一些问题</title>
       <link href="/2023/01/04/%E5%88%9B%E5%BB%BAhexo%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/"/>
       <url>/2023/01/04/%E5%88%9B%E5%BB%BAhexo%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</url>
