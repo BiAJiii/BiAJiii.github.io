@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="二叉树  存储方式：   二叉搜索树(BST)   封装实现:   12345678910111213141516171819202122232425262728293031323334353637383940414243&#x2F;&#x2F;二叉树封装function BST() &amp;#123;    &#x2F;&#x2F;节点保存    function Node(key) &amp;#123;        this.key &#x3D; key">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一些数据结构与算法">
+<meta property="og:url" content="http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="Samuel&#39;s Blog">
+<meta property="og:description" content="二叉树  存储方式：   二叉搜索树(BST)   封装实现:   12345678910111213141516171819202122232425262728293031323334353637383940414243&#x2F;&#x2F;二叉树封装function BST() &amp;#123;    &#x2F;&#x2F;节点保存    function Node(key) &amp;#123;        this.key &#x3D; key">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301061452280.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301061501599.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301061504675.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301061518174.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301061608249.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301061717225.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301061720015.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301091410723.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301091440704.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301091612833.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301091614746.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301091703499.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301091704200.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301091704566.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301091710987.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301091714254.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301101529051.png">
+<meta property="article:published_time" content="2023-01-10T07:50:09.000Z">
+<meta property="article:modified_time" content="2023-01-10T07:53:09.611Z">
+<meta property="article:author" content="Samuel">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301061452280.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>一些数据结构与算法</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/BiAJiii">Projects</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/01/05/Typora%E5%9B%BE%E7%89%87%E5%85%B1%E4%BA%AB%EF%BC%88Github+Picgo+Typora%EF%BC%89/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/&text=一些数据结构与算法"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/&title=一些数据结构与算法"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/&is_video=false&description=一些数据结构与算法"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=一些数据结构与算法&body=Check out this article: http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/&title=一些数据结构与算法"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/&title=一些数据结构与算法"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/&title=一些数据结构与算法"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/&title=一些数据结构与算法"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/&name=一些数据结构与算法&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/&t=一些数据结构与算法"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-BST"><span class="toc-number">1.1.</span> <span class="toc-text">二叉搜索树(BST)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">排序算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="toc-number">2.1.</span> <span class="toc-text">冒泡排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="toc-number">2.2.</span> <span class="toc-text">选择排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="toc-number">2.3.</span> <span class="toc-text">插入排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F"><span class="toc-number">2.4.</span> <span class="toc-text">希尔排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="toc-number">2.5.</span> <span class="toc-text">快速排序</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        一些数据结构与算法
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Samuel</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-01-10T07:50:09.000Z" itemprop="datePublished">2023-01-10</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301061452280.png" alt="image-20230106145213189"></p>
+<ul>
+<li>存储方式：</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301061501599.png" alt="image-20230106150159499"></p>
+<h3 id="二叉搜索树-BST"><a href="#二叉搜索树-BST" class="headerlink" title="二叉搜索树(BST)"></a>二叉搜索树(BST)</h3><p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301061504675.png" alt="image-20230106150422377"></p>
+<p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301061518174.png" alt="image-20230106151827638"></p>
+<ul>
+<li>封装实现:</li>
+</ul>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">//二叉树封装</span><br><span class="line">function BST() &#123;</span><br><span class="line">    //节点保存</span><br><span class="line">    function Node(key) &#123;</span><br><span class="line">        this.key = key </span><br><span class="line">        this.left = null</span><br><span class="line">        this.right = null</span><br><span class="line">    &#125;</span><br><span class="line">    //根属性</span><br><span class="line">    this.root = null;</span><br><span class="line">    </span><br><span class="line">    BST.prototype.insert = function (key) &#123;</span><br><span class="line">        let newNode = new Node(key)</span><br><span class="line">        //判断根是否存在</span><br><span class="line">        if(this.root === null)&#123;</span><br><span class="line">            this.root = newNode</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            this.NodeCompare(this.root, newNode)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    BST.prototype.NodeCompare = function (oldNode, newNode) &#123;</span><br><span class="line">        //左查找</span><br><span class="line">        if(newNode.key &lt; oldNode.key) &#123;</span><br><span class="line">            if(oldNode.left !== null) &#123;</span><br><span class="line">                this.NodeCompare(oldNode.left, newNode)</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                oldNode.left = newNode</span><br><span class="line">            &#125;</span><br><span class="line">        //右查找    </span><br><span class="line">        &#125; else if( newNode.key &gt; oldNode.key ) &#123;</span><br><span class="line">            if(oldNode.right !== null) &#123;</span><br><span class="line">                this.NodeCompare(oldNode.right, newNode)</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                oldNode.right = newNode</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            alert(&#x27;当前数值已存在&#x27;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br><span class="line">const bst = new BST()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>遍历方法：</li>
+</ul>
+<p>1、先序遍历</p>
+<p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301061608249.png" alt="image-20230106160858807"></p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//先序遍历</span><br><span class="line">//handler用于处理遍历显示形式</span><br><span class="line">BST.prototype.preTravelsal = function(handler) &#123;</span><br><span class="line">    this.preTravelsalNode(this.root, handler)</span><br><span class="line">&#125;</span><br><span class="line">//节点遍历</span><br><span class="line">//递归调用栈（前进后出）</span><br><span class="line">BST.prototype.preTravelsalNode = function(Node, handler)&#123;</span><br><span class="line">    if(Node !== null)&#123;</span><br><span class="line">        handler(Node.key)//这个其实可以看做是当前处理的节点</span><br><span class="line">        //处理左子节点</span><br><span class="line">        this.preTravelsalNode(Node.left, handler)</span><br><span class="line">        //如果左子节点没有，处理右子节点</span><br><span class="line">        this.preTravelsalNode(Node.right, handler)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>测试代码：</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const bst = new BST()</span><br><span class="line"></span><br><span class="line">bst.insert(3)</span><br><span class="line">bst.insert(1)</span><br><span class="line">bst.insert(4)</span><br><span class="line">bst.insert(0)</span><br><span class="line">bst.insert(2)</span><br><span class="line"></span><br><span class="line">var result = &#x27;&#x27;</span><br><span class="line">bst.preTravelsal(function (key) &#123;</span><br><span class="line">    result += key + &#x27;-&#x27;</span><br><span class="line">&#125;) </span><br><span class="line">console.log(result)</span><br><span class="line">//结果：3-1-0-2-4</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>2、中序遍历</p>
+<p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301061717225.png" alt="image-20230106171729924"></p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//先序遍历对调一下就好</span><br><span class="line">//处理左子节点</span><br><span class="line">this.preTravelsalNode(Node.left, handler)</span><br><span class="line">//处理该节点</span><br><span class="line">handler(Node.key)</span><br><span class="line">//处理右子节点</span><br><span class="line">this.preTravelsalNode(Node.right, handler)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>3、后序遍历</p>
+<p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301061720015.png" alt="image-20230106171937295"></p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//同理</span><br><span class="line">//先序遍历对调一下就好</span><br><span class="line">//处理左子节点</span><br><span class="line">this.preTravelsalNode(Node.left, handler)</span><br><span class="line">//处理右子节点</span><br><span class="line">this.preTravelsalNode(Node.right, handler)</span><br><span class="line">//处理该节点</span><br><span class="line">handler(Node.key)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>删除节点</li>
+</ul>
+<p>1、查找删除的节点，找到进行下一步，未找到就return</p>
+<p>注意：最好添加几个变量，方便后续删除</p>
+<p>parent（删除节点的父节点） current（要删除的节点） isLeft（删除节点的左侧是否存在）</p>
+<p>2、找到节点分为以下几个情况</p>
+<p>​	a、删除叶子点</p>
+<p>​	一：isLeft：ture ，让parent.left &#x3D; null</p>
+<p>​	二：isLeft：false ，让parent.right &#x3D; null</p>
+<p>​	b、删除有一个节点的子节点</p>
+<p>​	四种情况</p>
+<p>​	parent.left &#x3D; current.left</p>
+<p>​	parent.left &#x3D; current.right</p>
+<p>​	parent.right &#x3D; current.left</p>
+<p>​	parent.right &#x3D; current.right</p>
+<p>​	c、删除的节点有两个节点</p>
+<p>​	思路：该节点有左右两分支，其实有两种方案，如果选左边，则找到该节点左分支下最大的数字替代该节点。若选的为右边，则选择该节点右分支下最小的数字替代该节点。</p>
+<h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ArrayList.prototype.BubbleSort = function () &#123;</span><br><span class="line">    let temp = null</span><br><span class="line">    let arr = this.array</span><br><span class="line">    for(let i = 0 ; i &lt; arr.length ; i++)&#123;</span><br><span class="line">        for(let j = 0; j &lt; arr.length - i; j++)&#123;</span><br><span class="line">            if(arr[j] &gt; arr[j+1])&#123;</span><br><span class="line">                temp = arr[j]</span><br><span class="line">                arr[j] = arr[j+1]</span><br><span class="line">                arr[j+1] = temp</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&#x27;冒泡后：&#x27; + arr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>冒泡排序效率：</p>
+<p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301091410723.png" alt="image-20230109141033549"></p>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p>​	选择排序的实现思路是从未排序序列中找到最小的元素，放到已排序序列的首位，重复上述步骤，直到所有元素排序完毕。</p>
+<p>1）假设未排序序列的第一个是最小值，记下该元素的位置，从前往后比较<br>2）若某个元素比该元素小，覆盖最小值的位置<br>3）重复第二个步骤，直到找到未排序的末尾<br>4）将未排序元素的第一个元素和最大元素交换位置<br>5）重复前面几个步骤，直到所有元素都已经排序。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> //选择排序</span><br><span class="line">ArrayList.prototype.SelectSort = function () &#123;</span><br><span class="line">    let temp = null</span><br><span class="line">    let arr = this.array</span><br><span class="line">    let len = this.array.length</span><br><span class="line">    for( let i = 0 ; i &lt; len ; i++)&#123;</span><br><span class="line">        let index = i</span><br><span class="line">        for( let j = i+1; j &lt; len; j++)&#123;</span><br><span class="line">            if(arr[index] &gt; arr[j])&#123;</span><br><span class="line">                index = j</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        temp = arr[i]</span><br><span class="line">        arr[i] = arr[index]</span><br><span class="line">        arr[index] = temp</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&#x27;选择排序后：&#x27; + arr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效率：</p>
+<p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301091440704.png" alt="image-20230109144042607"></p>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301091612833.png" alt="image-20230109161222605"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">ArrayList.prototype.InsertSort = function () &#123;</span><br><span class="line">    let Arr = this.array</span><br><span class="line">    let len = this.array.length</span><br><span class="line">    //因为每一次比较，标记index前的数组都被看做为一个整体，所以需要进行lenght-1次比较</span><br><span class="line">    for( let i = 1; i &lt; len ; i++)&#123;</span><br><span class="line">        //j对应需要比较数字的索引</span><br><span class="line">        //让j=i是为了不影响大循环中i</span><br><span class="line">        let j = i</span><br><span class="line">        //将需要比较数字记录为临时变量temp</span><br><span class="line">        let temp = Arr[i]</span><br><span class="line">        //由于插入比较是标记数字对前面的有序数组，进行从大到小的比较</span><br><span class="line">        //所以，当temp小于有序数组中对应数字，循环仍要进行</span><br><span class="line">        while(Arr[j-1] &gt; temp)&#123;</span><br><span class="line">            //由于temp小于该轮有序数组的数字，则要将该轮数字往后移，即index+1，且j--，进行下一轮比较</span><br><span class="line">            Arr[j] = Arr[j-1]</span><br><span class="line">            j--</span><br><span class="line">            //当temp与有序数组中所有数字进行比较仍未满足跳出while循环条件，即temp为有序数组中最小的数，直接在j==0的位置插入</span><br><span class="line">            if(j == 0)&#123;</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //将temp插入到找到索引对应的位置中</span><br><span class="line">        Arr[j] = temp</span><br><span class="line">    &#125;</span><br><span class="line">    console.log(&#x27;插入排序：&#x27; + Arr)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效率：</p>
+<p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301091614746.png" alt="image-20230109161455585"></p>
+<h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><p>​		希尔排序是通过比较相距一定间隔的元素来进行，各趟比较所用的距离随着算法的进行而减小，直到只比较相邻元素的最后一趟排序为止。增量为：<strong>gap&#x3D;length&#x2F;2</strong></p>
+<p>原理图示（假设数组长度为8）：</p>
+<p>（1）gap为4</p>
+<p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301091703499.png" alt="img"></p>
+<p>（2）gap为2</p>
+<p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301091704200.png" alt="img"></p>
+<p>（3）gap为1</p>
+<p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301091704566.png" alt="img"></p>
+<p>其实希尔排序是基于插入排序的，只不过是希尔排序按间隔进行了分组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//希尔排序</span><br><span class="line">    ArrayList.prototype.ShellSort = function() &#123;</span><br><span class="line">        let len = this.array.length</span><br><span class="line">        let arr = this.array</span><br><span class="line">        let gap = Math.floor(len/2)</span><br><span class="line">        while(gap &gt;= 1) &#123;</span><br><span class="line">            //类似插入算法那一套，但现在间隔变成了gap而不是1</span><br><span class="line">            for( let i = gap; i &lt; len; i++) &#123;</span><br><span class="line">                let j = i</span><br><span class="line">                let temp = arr[j]</span><br><span class="line">                while(arr[j - gap] &gt; temp &amp;&amp; j &gt;= gap) &#123;</span><br><span class="line">                    arr[j] = arr[j-gap]</span><br><span class="line">                    j -= gap</span><br><span class="line">                &#125;</span><br><span class="line">                arr[j] = temp</span><br><span class="line">            &#125;</span><br><span class="line">            gap = Math.floor(gap / 2)</span><br><span class="line">        &#125;</span><br><span class="line">        console.log(&#x27;希尔排序：&#x27; + arr)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>效率：</p>
+<p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301091710987.png" alt="image-20230109171009853"></p>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301091714254.png" alt="image-20230109171448025"></p>
+<p>基本思想：</p>
+<p>1、选定pivot中心轴</p>
+<p>2、将大于pivot的数字放在piovt右边</p>
+<p>3、将小于pivot的数字放在piovt右边</p>
+<p>4、分别对左右子序列重复前前三步操作（递归）</p>
+<p>5、当递归尽头的左右子序列长度都为1时，跳出递归</p>
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">//快速排序</span><br><span class="line">ArrayList.prototype.QuickSort = function (L ,R) &#123;</span><br><span class="line">    // L和R是为了确定一开始左和右的数如：（0，8），而left和right会随着循环变化，</span><br><span class="line">    // 如果不设定L和R，会导致栈溢出</span><br><span class="line">    // 在递归过程中，right和left是不断变化的，而L和R会保持一开始输入的数字</span><br><span class="line">    let arr = this.array</span><br><span class="line">    let left = L</span><br><span class="line">    let right = R</span><br><span class="line">    //将数组最右边的设为piovt</span><br><span class="line">    //先左指针循环，再右指针循环</span><br><span class="line">    //如果pivot为最左边</span><br><span class="line">    //则右指针先循环，左指针再循环</span><br><span class="line">    let pivot = arr[right]</span><br><span class="line">    if(left &gt;= right) &#123;</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    while(left &lt; right) &#123;</span><br><span class="line">        //左指针向右遍历，遇到比pivot大的数停止</span><br><span class="line">        while(left &lt; right &amp;&amp; arr[left] &lt;= pivot)&#123;</span><br><span class="line">            left++</span><br><span class="line">        &#125;</span><br><span class="line">        if(arr[left] &gt; pivot)&#123;</span><br><span class="line">            arr[right] = arr[left]</span><br><span class="line">        &#125;</span><br><span class="line">        //左指针向左遍历，遇到比pivot小的数停止</span><br><span class="line">        while(left &lt; right &amp;&amp; pivot &lt;= arr[right])&#123;</span><br><span class="line">            right--</span><br><span class="line">        &#125;</span><br><span class="line">        if(arr[right] &lt; pivot)&#123;</span><br><span class="line">            arr[left] = arr[right]</span><br><span class="line">        &#125;</span><br><span class="line">        if(left &gt;= right)&#123;</span><br><span class="line">            arr[left] = pivot</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //pivot左边递归</span><br><span class="line">    this.QuickSort(L , left-1)</span><br><span class="line">    //pivot右边递归</span><br><span class="line">    this.QuickSort(left+1 ,R)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301101529051.png" alt="image-20230110152931858"></p>
+<ul>
+<li>X表示该数字放进了最右边的位置</li>
+</ul>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/BiAJiii">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.</span> <span class="toc-text">二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91-BST"><span class="toc-number">1.1.</span> <span class="toc-text">二叉搜索树(BST)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">排序算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="toc-number">2.1.</span> <span class="toc-text">冒泡排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="toc-number">2.2.</span> <span class="toc-text">选择排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="toc-number">2.3.</span> <span class="toc-text">插入排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F"><span class="toc-number">2.4.</span> <span class="toc-text">希尔排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="toc-number">2.5.</span> <span class="toc-text">快速排序</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/&text=一些数据结构与算法"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/&title=一些数据结构与算法"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/&is_video=false&description=一些数据结构与算法"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=一些数据结构与算法&body=Check out this article: http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/&title=一些数据结构与算法"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/&title=一些数据结构与算法"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/&title=一些数据结构与算法"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/&title=一些数据结构与算法"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/&name=一些数据结构与算法&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/&t=一些数据结构与算法"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2023
+    Samuel
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/BiAJiii">Projects</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
