@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="LeetCode（Updating…）2、两数相加（考核链式）给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。 请你将两个数相加，并以相同形式返回一个表示和的链表。 你可以假设除了数字 0 之外，这两个数都不会以 0 开头。 __思路__：由于JS中没有内置链表，这里是自定义好的链式。其工作原理为，定义值val和next指向，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode(Updating...)">
+<meta property="og:url" content="http://example.com/2023/01/13/LeetCode-Updating/index.html">
+<meta property="og:site_name" content="Samuel&#39;s Blog">
+<meta property="og:description" content="LeetCode（Updating…）2、两数相加（考核链式）给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。 请你将两个数相加，并以相同形式返回一个表示和的链表。 你可以假设除了数字 0 之外，这两个数都不会以 0 开头。 __思路__：由于JS中没有内置链表，这里是自定义好的链式。其工作原理为，定义值val和next指向，">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301111636119.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301111639562.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301121417343.png">
+<meta property="og:image" content="https://pic.leetcode-cn.com/533a8538f42e6a6495b87d0c054224fdaa2e6da1cd9158f3e9042894137961fc-%E6%88%AA%E5%B1%8F2019-12-06%E4%B8%8A%E5%8D%887.54.28.png">
+<meta property="article:published_time" content="2023-01-13T05:57:16.000Z">
+<meta property="article:modified_time" content="2023-01-13T05:57:55.546Z">
+<meta property="article:author" content="Samuel">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301111636119.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>LeetCode(Updating...)</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="Menu"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="Top" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/BiAJiii">Projects</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="Next post" href="/2023/01/10/%E4%B8%80%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="Back to top" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="Share post" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2023/01/13/LeetCode-Updating/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2023/01/13/LeetCode-Updating/&text=LeetCode(Updating...)"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2023/01/13/LeetCode-Updating/&title=LeetCode(Updating...)"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2023/01/13/LeetCode-Updating/&is_video=false&description=LeetCode(Updating...)"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=LeetCode(Updating...)&body=Check out this article: http://example.com/2023/01/13/LeetCode-Updating/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2023/01/13/LeetCode-Updating/&title=LeetCode(Updating...)"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2023/01/13/LeetCode-Updating/&title=LeetCode(Updating...)"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2023/01/13/LeetCode-Updating/&title=LeetCode(Updating...)"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2023/01/13/LeetCode-Updating/&title=LeetCode(Updating...)"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2023/01/13/LeetCode-Updating/&name=LeetCode(Updating...)&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2023/01/13/LeetCode-Updating/&t=LeetCode(Updating...)"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LeetCode%EF%BC%88Updating%E2%80%A6%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">LeetCode（Updating…）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0%EF%BC%88%E8%80%83%E6%A0%B8%E9%93%BE%E5%BC%8F%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">2、两数相加（考核链式）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%97%E4%B8%B2"><span class="toc-number">1.2.</span> <span class="toc-text">3、无重复字符的最长字串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2"><span class="toc-number">1.3.</span> <span class="toc-text">5、最长回文串</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        LeetCode(Updating...)
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Samuel</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2023-01-13T05:57:16.000Z" itemprop="datePublished">2023-01-13</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="LeetCode（Updating…）"><a href="#LeetCode（Updating…）" class="headerlink" title="LeetCode（Updating…）"></a>LeetCode（Updating…）</h1><h2 id="2、两数相加（考核链式）"><a href="#2、两数相加（考核链式）" class="headerlink" title="2、两数相加（考核链式）"></a>2、两数相加（考核链式）</h2><p>给你两个 <strong>非空</strong> 的链表，表示两个非负的整数。它们每位数字都是按照 <strong>逆序</strong> 的方式存储的，并且每个节点只能存储 <strong>一位</strong> 数字。</p>
+<p>请你将两个数相加，并以相同形式返回一个表示和的链表。</p>
+<p>你可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+<p>__思路__：由于JS中没有内置链表，这里是自定义好的链式。其工作原理为，定义值val和next指向，而next会指向下一个node的val（对象套对象）。</p>
+<p>1、判断l1和l2是否为其链式最后一位数，如果都是，跳出循环。注意：这里的l1和l2都是对象，所以即便他们都是空的，也不会跳出循环。所以，只有他们都为null，即为链式的结尾时，才会跳出while循环。</p>
+<p>2、将l1和l2的node的val处理，赋给l3的node</p>
+<p>3、l1和l2转跳到下一个node</p>
+<p>4、当跳出循环，表示l1和l2都已经到尾部，这时判断是否有进位，有的话给l3再添加一个进位即可</p>
+<p>5、注意：l3 new完后赋值给a3（不要对原链进行操作），这样l3可以作为链式的头部，如果直接用l3进行所有操作，最后返回l3的时候，只有链式的最后一个位或倒数第二位（有进位的情况）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * function ListNode(val, next) &#123;</span><br><span class="line"> *     this.val = (val===undefined ? 0 : val)</span><br><span class="line"> *     this.next = (next===undefined ? null : next)</span><br><span class="line"> * &#125;</span><br><span class="line"> */</span><br><span class="line">/**</span><br><span class="line"> * @param &#123;ListNode&#125; l1</span><br><span class="line"> * @param &#123;ListNode&#125; l2</span><br><span class="line"> * @return &#123;ListNode&#125;</span><br><span class="line"> */</span><br><span class="line"> //这里自定义的链式，next都指向下一个node的val</span><br><span class="line">var addTwoNumbers = function(l1, l2) &#123;</span><br><span class="line">    let a1 = l1</span><br><span class="line">    let a2 = l2</span><br><span class="line">    let carry = 0</span><br><span class="line">    let l3 = new ListNode()</span><br><span class="line">    let a3 = l3</span><br><span class="line">    //如果a1和a2中有一个没有读到null（结尾），循环继续。</span><br><span class="line">    while(a1 || a2)&#123;</span><br><span class="line">        //如果a1先结束，给后面的值都赋为0</span><br><span class="line">        const val1 = a1?a1.val:0;</span><br><span class="line">        //a2同理</span><br><span class="line">        const val2 = a2?a2.val:0;</span><br><span class="line">        const val3 = (val1 + val2 + carry) % 10</span><br><span class="line">        //判断是否有进位</span><br><span class="line">        carry = Math.floor((val1 + val2 + carry) / 10)</span><br><span class="line"></span><br><span class="line">        a3.next = new ListNode(val3)</span><br><span class="line">        //判断a是否为结尾，不是的话，读下一个node</span><br><span class="line">        if(a1) &#123;a1 = a1.next&#125;</span><br><span class="line">        if(a2) &#123;a2 = a2.next&#125;</span><br><span class="line">        a3 = a3.next</span><br><span class="line">    &#125;</span><br><span class="line">    //判断最后一位是否有进位</span><br><span class="line">    if(carry === 1)&#123;</span><br><span class="line">        a3.next = new ListNode(carry)</span><br><span class="line">    &#125;</span><br><span class="line">    return l3.next</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>补充上面第五点：</p>
+<ul>
+<li>情况一</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let a = new ListNode();</span><br><span class="line">// let b = a</span><br><span class="line">a.next = new ListNode(1)</span><br><span class="line">a = a.next</span><br><span class="line">a.next = new ListNode(2)</span><br><span class="line">a = a.next</span><br><span class="line">console.log(a)</span><br></pre></td></tr></table></figure>
+
+<p>结果：<img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301111636119.png" alt="image-20230111163621543"></p>
+<p>很明显，其实上面的代码只是不断更新a这个对象中的next属性，将最后new出来的ListNode(2)又赋给了a，最后a还是只有一个node</p>
+<ul>
+<li>情况二</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">let a = new ListNode();</span><br><span class="line">let b = a</span><br><span class="line">//此时，b===a</span><br><span class="line">b.next = new ListNode(1)</span><br><span class="line">b = b.next</span><br><span class="line">//b已经是一个全新的对象（即next指向的下一个node）， b!==a</span><br><span class="line">b.next = new ListNode(2)</span><br><span class="line">b = b.next</span><br><span class="line">console.log(a)</span><br></pre></td></tr></table></figure>
+
+<p>结果：<img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301111639562.png" alt="image-20230111163956390"></p>
+<p>可以看出，这里没有直接修改链式a的属性，而是给a.next嵌套了一个新的node对象。</p>
+<h2 id="3、无重复字符的最长字串"><a href="#3、无重复字符的最长字串" class="headerlink" title="3、无重复字符的最长字串"></a>3、无重复字符的最长字串</h2><p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的 <strong>最长子串</strong> 的长度。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">例子1：</span><br><span class="line">输入: s = &quot;abcabcbb&quot;</span><br><span class="line">输出: 3 </span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;abc&quot;，所以其长度为 3。</span><br><span class="line">例子2：</span><br><span class="line">输入: s = &quot;bbbbb&quot;</span><br><span class="line">输出: 1</span><br><span class="line">解释: 因为无重复字符的最长子串是 &quot;b&quot;，所以其长度为 1。</span><br></pre></td></tr></table></figure>
+
+<p>这道题想的挺久的，一开始是下面的思路（其实是读题没读对），后面才发现想的方向错了。下面的代码其实是解决一个字符串中，首尾元素重复的子字符串的最大或最小长度。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;string&#125; s</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span><br><span class="line">var lengthOfLongestSubstring = function(s) &#123;</span><br><span class="line">    let arr = Array.from(s)</span><br><span class="line">    let len = arr.length</span><br><span class="line">    let maxCount = 0</span><br><span class="line">    for(let i = 0; i &lt; len - 1; i++)&#123;</span><br><span class="line">        let j = i + 1</span><br><span class="line">        let count = 0</span><br><span class="line"></span><br><span class="line">        while(1)&#123;</span><br><span class="line">            count++</span><br><span class="line">            if(arr[i] == arr[j]) &#123;</span><br><span class="line">                break</span><br><span class="line">            &#125;</span><br><span class="line">            if(count &gt; maxCount) &#123;</span><br><span class="line">                maxCount = count</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            j++</span><br><span class="line">            if(j == len) &#123;</span><br><span class="line">                break</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return maxCount</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>后来实在想不到了，就看到下面这幅图，思想很清晰，具体实现过程写在代码的注释里了。</p>
+<p><img src="https://raw.githubusercontent.com/BiAJiii/imgsBed/main/imgs/202301121417343.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;string&#125; s</span><br><span class="line"> * @return &#123;number&#125;</span><br><span class="line"> */</span><br><span class="line">var lengthOfLongestSubstring = function(s) &#123;</span><br><span class="line">    //先将字符串转数组</span><br><span class="line">    let arr = Array.from(s)</span><br><span class="line">    //将该数组的第一位赋给新数组[]</span><br><span class="line">    let newArr = [arr[0]]</span><br><span class="line">    let len = arr.length</span><br><span class="line">    let newLen = newArr.length</span><br><span class="line">    let maxCount = 0</span><br><span class="line">    //对数组arr进行遍历</span><br><span class="line">    for(let i = 1; i &lt; len; i++)&#123;</span><br><span class="line">        //在arr的基础上对newArr进行遍历</span><br><span class="line">        for(let j = 0; j &lt; newLen; j++)&#123;</span><br><span class="line">            //判断是否新数组中是否已经存在 属于arr下标i对应的元素</span><br><span class="line">            let index = newArr.indexOf(arr[i])</span><br><span class="line">            newArr.push(arr[i])</span><br><span class="line">            //存在的话（newArr中相同的元素最多有两个，且其他元素皆无相同元素），</span><br><span class="line">            //将找到相同元素的第一个元素前面的全部数组删除。</span><br><span class="line">            if(index &gt;= 0)&#123;</span><br><span class="line">                newArr.splice(0 , index + 1)</span><br><span class="line">            &#125;</span><br><span class="line">            //如果修改后的数组长度要大于前面记录的maxCount，赋值</span><br><span class="line">            if(newArr.length &gt; maxCount)&#123;</span><br><span class="line">                maxCount = newArr.length</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return maxCount</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="5、最长回文串"><a href="#5、最长回文串" class="headerlink" title="5、最长回文串"></a>5、最长回文串</h2><p>给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。</p>
+<p>如果字符串的反序与原始字符串相同，则该字符串称为回文字符串。</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">例子：</span><br><span class="line">输入：s = &quot;babad&quot;</span><br><span class="line">输出：&quot;bab&quot;</span><br><span class="line">解释：&quot;aba&quot; 同样是符合题意的答案。</span><br></pre></td></tr></table></figure>
+
+<p>又是想了很久的题目，思路是左右指针偏移的情况。</p>
+<p><img src="https://pic.leetcode-cn.com/533a8538f42e6a6495b87d0c054224fdaa2e6da1cd9158f3e9042894137961fc-%E6%88%AA%E5%B1%8F2019-12-06%E4%B8%8A%E5%8D%887.54.28.png" alt="截屏2019-12-06上午7.54.28.png"></p>
+<p>本以为是很简单的情况，但越写发现情况越多，虽然最后代码写出来了，但实在是太复杂了。。。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;string&#125; s</span><br><span class="line"> * @return &#123;string&#125;</span><br><span class="line"> */</span><br><span class="line">var longestPalindrome = function(s) &#123;</span><br><span class="line">    let arr = Array.from(s)</span><br><span class="line">    let len = arr.length</span><br><span class="line">    let OutArr = [arr[0]]</span><br><span class="line">    //数组长度小于三的情况</span><br><span class="line">    if(arr.length &lt;= 2)&#123;</span><br><span class="line">        if(arr[0]==arr[1])&#123;</span><br><span class="line">            return s</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            return arr[0]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //数组长度大于等于三的情况</span><br><span class="line">   for(let i = 1; i &lt; (len - 1); i++)&#123;</span><br><span class="line">        let j = (i - 1)//左指针</span><br><span class="line">        let k = (i + 1)//右指针</span><br><span class="line">        //如果一开始左指针和i相同，就让左指针一直左移，直到不同；</span><br><span class="line">        while((arr[j] == arr[i]))&#123;</span><br><span class="line">            //跳出循环两个条件</span><br><span class="line">            //1、左指针到达尽头</span><br><span class="line">            //2、左指针的数不等于右指针的数（这种情况是为了解决左右指针一开始就不同的字符串 如 1223 12224）</span><br><span class="line">            if(arr[k] != arr[j] &amp;&amp; (k-j) &gt;= OutArr.length)&#123;</span><br><span class="line">                OutArr = arr.slice(j,k)</span><br><span class="line">                break</span><br><span class="line">            &#125;</span><br><span class="line">            if(j == 0) break</span><br><span class="line">            if(j &gt; 0)&#123;</span><br><span class="line">                j--//左指针左移</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        while((arr[k] == arr[i]))&#123;</span><br><span class="line">            //这边和上面是同理的</span><br><span class="line">            if( arr[k] != arr[j])&#123;</span><br><span class="line">                //(k-j) &gt;= OutArr.length是为了保证最后一轮进入不了判断3，而影响OutArr结果</span><br><span class="line">                if(arr[j]==arr[i] &amp;&amp; (k-j) &gt;= OutArr.length)&#123;</span><br><span class="line">                    OutArr = arr.slice(j , k+1)</span><br><span class="line">                &#125;</span><br><span class="line">                if(arr[j] != arr[i] &amp;&amp; (k-j) &gt;= OutArr.length)&#123;</span><br><span class="line">                    OutArr = arr.slice(j+1 , k+1)</span><br><span class="line">                &#125;</span><br><span class="line">                k++</span><br><span class="line">                break</span><br><span class="line">            &#125;</span><br><span class="line">            if(k == (len - 1)) break</span><br><span class="line">            if(k &lt; len)&#123;</span><br><span class="line">                k++//右指针右移</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //判断3：进入开始判断左右指针(此时左右指针之间的数字为一个或多个arr[i]，即(左指针)11111(右指针))</span><br><span class="line">        while(arr[k] == arr[j])&#123;</span><br><span class="line">            //左右指针相同，就继续扩大范围</span><br><span class="line">            if(arr[k] == arr[j])&#123;</span><br><span class="line">               let tempArr = arr.slice(j, (k + 1))</span><br><span class="line">               //判断这次循环的回文字符串是否是最大的</span><br><span class="line">               if(tempArr.length &gt;= OutArr.length) &#123;</span><br><span class="line">                    OutArr = tempArr</span><br><span class="line">                &#125;</span><br><span class="line">                //如果左右指针在不断移动的过程中仍相同，当左指针或右指针到尽头，跳出来</span><br><span class="line">                if(j == 0 || k == (len + 1))&#123;</span><br><span class="line">                    break</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            j--</span><br><span class="line">            k++</span><br><span class="line">        &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   return OutArr.join(&#x27;&#x27;)</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>别人写的，思路一样，这个其实就是将情况分成了两种，奇数长度（aba）和偶数长度（abba）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * @param &#123;string&#125; s</span><br><span class="line"> * @return &#123;string&#125;</span><br><span class="line"> */</span><br><span class="line">var longestPalindrome = function(s) &#123;</span><br><span class="line">        if (s.length&lt;2)&#123;</span><br><span class="line">            return s</span><br><span class="line">        &#125;</span><br><span class="line">        let res = &#x27;&#x27;</span><br><span class="line">        for (let i = 0; i &lt; s.length; i++) &#123;</span><br><span class="line">            // 回文子串长度是奇数</span><br><span class="line">            helper(i, i)</span><br><span class="line">            // 回文子串长度是偶数</span><br><span class="line">            helper(i, i + 1) </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        function helper(m, n) &#123;</span><br><span class="line">            while (m &gt;= 0 &amp;&amp; n &lt; s.length &amp;&amp; s[m] == s[n]) &#123;</span><br><span class="line">                m--</span><br><span class="line">                n++</span><br><span class="line">            &#125;</span><br><span class="line">            // 注意此处m,n的值循环完后  是恰好不满足循环条件的时刻</span><br><span class="line">            // 此时m到n的距离为n-m+1，但是mn两个边界不能取 所以应该取m+1到n-1的区间  长度是n-m-1</span><br><span class="line">            if (n - m - 1 &gt; res.length) &#123;</span><br><span class="line">                // slice也要取[m+1,n-1]这个区间 </span><br><span class="line">                res = s.slice(m + 1, n)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return res</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">作者：Salvatore</span><br><span class="line">链接：https://leetcode.cn/problems/longest-palindromic-substring/solutions/697935/chao-jian-dan-de-zhong-xin-kuo-san-fa-yi-qini/</span><br><span class="line">来源：力扣（LeetCode）</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br></pre></td></tr></table></figure>
+
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/BiAJiii">Projects</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LeetCode%EF%BC%88Updating%E2%80%A6%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">LeetCode（Updating…）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0%EF%BC%88%E8%80%83%E6%A0%B8%E9%93%BE%E5%BC%8F%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">2、两数相加（考核链式）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%97%E4%B8%B2"><span class="toc-number">1.2.</span> <span class="toc-text">3、无重复字符的最长字串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2"><span class="toc-number">1.3.</span> <span class="toc-text">5、最长回文串</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2023/01/13/LeetCode-Updating/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2023/01/13/LeetCode-Updating/&text=LeetCode(Updating...)"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2023/01/13/LeetCode-Updating/&title=LeetCode(Updating...)"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2023/01/13/LeetCode-Updating/&is_video=false&description=LeetCode(Updating...)"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=LeetCode(Updating...)&body=Check out this article: http://example.com/2023/01/13/LeetCode-Updating/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2023/01/13/LeetCode-Updating/&title=LeetCode(Updating...)"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2023/01/13/LeetCode-Updating/&title=LeetCode(Updating...)"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2023/01/13/LeetCode-Updating/&title=LeetCode(Updating...)"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2023/01/13/LeetCode-Updating/&title=LeetCode(Updating...)"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2023/01/13/LeetCode-Updating/&name=LeetCode(Updating...)&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2023/01/13/LeetCode-Updating/&t=LeetCode(Updating...)"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2023
+    Samuel
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">Home</a></li><!--
+     --><!--
+       --><li><a href="/about/">About</a></li><!--
+     --><!--
+       --><li><a href="/archives/">Writing</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/BiAJiii">Projects</a></li><!--
+     --><!--
+       --><li><a href="/search/">Search</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script> 
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script> 
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
